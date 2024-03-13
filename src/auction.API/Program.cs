@@ -1,8 +1,8 @@
 using auction.API.Contracts;
 using auction.API.Filters;
-using auction.API.Filters.Services;
 using auction.API.Repositories;
 using auction.API.Repositories.DataAccess;
+using auction.API.Services;
 using auction.API.UseCases.Auctions.GetCurrent;
 using auction.API.UseCases.Offers.CreateOffer;
 using Microsoft.EntityFrameworkCore;
@@ -47,7 +47,7 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 builder.Services.AddScoped<AuthenticationUserAttribute>();
-builder.Services.AddScoped<LoggedUser>();
+builder.Services.AddScoped<ILoggedUser, LoggedUser>();
 builder.Services.AddScoped<CreateOfferUseCase>();
 builder.Services.AddScoped<GetCurrentAuctionUseCase>();
 builder.Services.AddScoped<IAuctionRepository, AuctionRepository>();

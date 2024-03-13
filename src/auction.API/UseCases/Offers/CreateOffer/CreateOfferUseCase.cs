@@ -1,17 +1,17 @@
 ﻿using auction.API.Communication.Requests;
 using auction.API.Contracts;
 using auction.API.Entities;
-using auction.API.Filters.Services;
+using auction.API.Services;
 
 namespace auction.API.UseCases.Offers.CreateOffer;
 
 public class CreateOfferUseCase
 {
-    private readonly LoggedUser _loggedUser;
+    private readonly ILoggedUser _loggedUser;
     private readonly IOfferRepository _repository;
 
 
-    public CreateOfferUseCase(LoggedUser loggedUser, IOfferRepository repository) 
+    public CreateOfferUseCase(ILoggedUser loggedUser, IOfferRepository repository) 
     { 
         _loggedUser = loggedUser;
         _repository = repository;
